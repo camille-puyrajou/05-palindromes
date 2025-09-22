@@ -1,18 +1,24 @@
+from unidecode import unidecode
+
 #### Fonction secondaire
 
 
 def ispalindrome(p):
-
-    # votre code ici
-    
+    """
+    Fonction permettant de vérifier si un mot ou une phrase est un palyndrome.
+    p doit être une chaîne de character.
+    """
+    p = unidecode(p.lower())
+    p = [i for i in p if i not in {" ",":", ";", "!", "?", ",", ".","'","-"}]
+    for i in range(len(p)):
+        if p == p[::-1]:
+            return True
     return False
 
 #### Fonction principale
 
 
 def main():
-
-    # vos appels à la fonction secondaire ici
 
     for s in ["radar", "kayak", "level", "rotor", "civique", "deifie"]:
         print(s, ispalindrome(s))
